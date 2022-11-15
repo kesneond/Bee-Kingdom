@@ -1,4 +1,4 @@
-Téma semestrální práce
+Včelí království
 =======================
 
 ## **Klientská bussiness operace**
@@ -9,7 +9,7 @@ Klient si bude moci přidávat nová vlastní včelstva a sestavovat si reálnou
 
 <img src="diagram.png" style="background-color: white"/>
 
-Takto vypadá datový model naší databáze, N:M vazba se nachází mezi entitami Leceni a Druh_lecby.
+Takto vypadá datový model naší databáze, N:M vazba se nachází mezi entitami Včelstva a Druh_lecby.
 
 ## **Komplexní dotaz**
 
