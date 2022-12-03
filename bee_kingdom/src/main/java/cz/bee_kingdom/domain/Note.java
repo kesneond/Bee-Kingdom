@@ -2,7 +2,7 @@ package cz.bee_kingdom.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 public class Note implements Serializable, DomainEntity<Long> {
@@ -14,7 +14,7 @@ public class Note implements Serializable, DomainEntity<Long> {
     private TypeNote typeNote;
 
     private String text;
-    private LocalDateTime dateTime;
+    private Date dateTime;
 
     @ManyToOne
     BeeColony colony;

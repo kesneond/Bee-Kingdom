@@ -2,7 +2,7 @@ package cz.bee_kingdom.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 @Entity
 public class Feeding implements Serializable, DomainEntity<Long> {
@@ -10,7 +10,7 @@ public class Feeding implements Serializable, DomainEntity<Long> {
     @GeneratedValue
     private Long idFeeding;
 
-    private LocalDateTime feedingDate;
+    private Date feedingDate;
     private Long amount;
 
     @ManyToOne
@@ -18,6 +18,51 @@ public class Feeding implements Serializable, DomainEntity<Long> {
 
     @ManyToOne
     FeedingType feedingType;
+
+    public Feeding(Date feedingDate, Long amount) {
+        this.feedingDate = feedingDate;
+        this.amount = amount;
+    }
+
+    public Feeding() {}
+
+    public Long getIdFeeding() {
+        return idFeeding;
+    }
+
+    public Date getFeedingDate() {
+        return feedingDate;
+    }
+
+    public void setFeedingDate(Date feedingDate) {
+        this.feedingDate = feedingDate;
+    }
+
+    public Long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
+
+    public BeeColony getBeeColony() {
+        return beeColony;
+    }
+
+    public Feeding setBeeColony(BeeColony beeColony) {
+        this.beeColony = beeColony;
+        return this;
+    }
+
+    public FeedingType getFeedingType() {
+        return feedingType;
+    }
+
+    public Feeding setFeedingType(FeedingType feedingType) {
+        this.feedingType = feedingType;
+        return this;
+    }
 
     @Override
     public Long getID() {

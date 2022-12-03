@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FeedingTypeRepository extends JpaRepository<FeedingType, Long> {
+public interface FeedingTypeRepository extends JpaRepository<FeedingType, String>, CrudRepository<FeedingType, String> {
 }

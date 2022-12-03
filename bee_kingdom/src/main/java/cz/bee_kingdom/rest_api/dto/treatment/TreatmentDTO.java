@@ -11,9 +11,6 @@ import java.time.LocalDateTime;
 public class TreatmentDTO {
     private Date dateTime;
 
-//    private TreatmentType treatmentType;
-
-//    private BeeColony colony;
 
     private Long idColony;
 
@@ -26,23 +23,6 @@ public class TreatmentDTO {
     public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
-
-//    public TreatmentType getTreatmentType() {
-//        return treatmentType;
-//    }
-
-//    public void setTreatmentType(TreatmentType treatmentType) {
-//        this.treatmentType = treatmentType;
-//    }
-
-//    public BeeColony getColony() {
-//        return colony;
-//    }
-
-//    public void setColony(BeeColony colony) {
-//        this.colony = colony;
-//    }
-
 
     public Long getIdColony() {
         return idColony;

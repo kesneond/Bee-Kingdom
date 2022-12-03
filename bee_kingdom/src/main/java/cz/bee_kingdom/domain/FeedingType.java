@@ -9,15 +9,21 @@ import java.util.ArrayList;
 import java.util.function.LongBinaryOperator;
 
 @Entity
-public class FeedingType implements Serializable, DomainEntity<Long> {
-    @Id
-    @GeneratedValue
-    private Long idFeedingType;
+public class FeedingType implements Serializable, DomainEntity<String> {
 
+    @Id
     private String feedingTypeName;
 
+    public String getFeedingTypeName() {
+        return feedingTypeName;
+    }
+
+    public void setFeedingTypeName(String feedingTypeName) {
+        this.feedingTypeName = feedingTypeName;
+    }
+
     @Override
-    public Long getID() {
-        return idFeedingType;
+    public String getID() {
+        return feedingTypeName;
     }
 }

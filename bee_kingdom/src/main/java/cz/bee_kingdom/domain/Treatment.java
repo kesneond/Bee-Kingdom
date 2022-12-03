@@ -22,26 +22,6 @@ public class Treatment implements Serializable, DomainEntity<Long> {
     @ManyToOne
     private BeeColony colony;
 
-//    private Long idColony;
-//
-//    private Long idType;
-
-//    public Long getIdColony() {
-//        return idColony;
-//    }
-//
-//    public void setIdColony(Long idColony) {
-//        this.idColony = idColony;
-//    }
-//
-//    public Long getIdType() {
-//        return idType;
-//    }
-//
-//    public void setIdType(Long idType) {
-//        this.idType = idType;
-//    }
-
     public Treatment(Date dateTime) {
         this.dateTime = dateTime;
     }

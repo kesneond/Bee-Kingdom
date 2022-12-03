@@ -20,16 +20,6 @@ public class TreatmentService extends AbstractCrudService<Treatment, Long> {
     }
 
     public Collection<TreatmentDTO> readAllByIdBeeColony(Long id) {
-//        ArrayList<Treatment> tmp = new ArrayList();
-//        tmp = (ArrayList<Treatment>) super.readAll();
-//        ArrayList<TreatmentDTO> res = new ArrayList<>();
-//        for (Treatment elem : tmp) {
-//            if(elem.getColony().getIdBeeColony() != id ) {
-//                tmp.remove(elem);
-//            } else {
-//                res.add(TreatmentToDto.apply(elem));
-//            }
-//        }
         ArrayList<Treatment> tmp = (ArrayList<Treatment>) treatmentRepository.findAllByColonyIdBeeColony(id);
         ArrayList<TreatmentDTO> res = new ArrayList<>();
         for (Treatment elem : tmp) {

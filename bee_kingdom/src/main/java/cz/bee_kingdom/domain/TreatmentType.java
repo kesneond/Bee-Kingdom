@@ -9,9 +9,6 @@ import java.util.ArrayList;
 
 @Entity
 public class TreatmentType implements Serializable, DomainEntity<String> {
-//    @Id
-//    @GeneratedValue
-//    private Long idTreatmentType;
     @Id
     private String treatmentTypeName;
 
@@ -21,14 +18,6 @@ public class TreatmentType implements Serializable, DomainEntity<String> {
     public TreatmentType(String treatmentTypeName) {
         this.treatmentTypeName = treatmentTypeName;
     }
-
-//    public Long getIdTreatmentType() {
-//        return idTreatmentType;
-//    }
-
-//    public void setIdTreatmentType(Long idTreatmentType) {
-//        this.idTreatmentType = idTreatmentType;
-//    }
 
     public String getTreatmentTypeName() {
         return treatmentTypeName;
