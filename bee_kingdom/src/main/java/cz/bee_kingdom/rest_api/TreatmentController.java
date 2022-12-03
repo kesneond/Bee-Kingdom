@@ -38,13 +38,13 @@ public class TreatmentController {
         Optional<BeeColony> tmp = beeColonyService.readByID(id_colony);
 
         if(tmp.isEmpty()) {
-            throw new EntityStateException();
+            throw new EntityStateException("Invalid Bee colony!");
         }
         e.setIdColony(tmp.get().getIdBeeColony());
 
         Optional<TreatmentType> type = treatmentTypeService.readByID(e.getIdType());
         if(type.isEmpty()) {
-            throw new EntityStateException();
+            throw new EntityStateException("Invalid Treatment type!");
         }
         e.setIdType(type.get().getIdTreatmentType());
 
@@ -63,6 +63,9 @@ public class TreatmentController {
         Optional<TreatmentType> tmpType = treatmentTypeService.readByID(e.getIdType());
 
         if(tmp.isPresent()) {
+            if(tmpType.isEmpty()) {
+                throw new EntityStateException("Invalid Treatment type!");
+            }
             tmp.get().setTreatmentType(tmpType.get());
             tmp.get().setDateTime(e.getDateTime());
         }
