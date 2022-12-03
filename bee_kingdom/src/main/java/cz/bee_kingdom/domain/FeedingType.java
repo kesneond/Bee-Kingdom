@@ -14,6 +14,12 @@ public class FeedingType implements Serializable, DomainEntity<String> {
     @Id
     private String feedingTypeName;
 
+    public FeedingType() {}
+
+    public FeedingType(String feedingTypeName) {
+        this.feedingTypeName = feedingTypeName;
+    }
+
     public String getFeedingTypeName() {
         return feedingTypeName;
     }
