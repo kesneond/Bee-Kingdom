@@ -26,7 +26,6 @@ public class TreatmentController {
     private final TreatmentTypeService treatmentTypeService;
 
     public TreatmentController(TreatmentTypeService treatmentTypeService, BeeColonyService beeColonyService, TreatmentService treatmentService, TreatmentToDto treatmentToDto, TreatmentToEntity treatmentToEntity) {
-//        super(treatmentService, treatmentToDto, treatmentToEntity);
         this.beeColonyService = beeColonyService;
         this.treatmentToDto = treatmentToDto;
         this.treatmentService = treatmentService;
@@ -42,7 +41,6 @@ public class TreatmentController {
             throw new EntityStateException();
         }
         e.setIdColony(tmp.get().getIdBeeColony());
-        System.out.println(e.toString());
 
         Optional<TreatmentType> type = treatmentTypeService.readByID(e.getIdType());
         if(type.isEmpty()) {
@@ -60,7 +58,6 @@ public class TreatmentController {
 
     @PutMapping("/{id}")
     public void update(@RequestBody TreatmentDTO e, @PathVariable Long id, @PathVariable Long id_colony) {
-        System.out.println(e.toString());
         Optional<Treatment> tmp = treatmentService.readByID(id);
 
         Optional<TreatmentType> tmpType = treatmentTypeService.readByID(e.getIdType());
@@ -69,7 +66,7 @@ public class TreatmentController {
             tmp.get().setTreatmentType(tmpType.get());
             tmp.get().setDateTime(e.getDateTime());
         }
-        
+
         treatmentService.update(tmp.get());
     }
 
