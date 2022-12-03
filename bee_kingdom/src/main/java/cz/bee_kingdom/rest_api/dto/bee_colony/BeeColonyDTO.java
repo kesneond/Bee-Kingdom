@@ -1,4 +1,4 @@
-package cz.bee_kingdom.rest_api.dto;
+package cz.bee_kingdom.rest_api.dto.bee_colony;
 
 import lombok.Data;
 

@@ -7,13 +7,25 @@ import javax.persistence.*;
 @Entity
 public class BeeColony implements Serializable, DomainEntity<Long> {
     @Id
-    @GeneratedValue
+//    @GeneratedValue
     private Long idBeeColony;
     private Long extensionsNumber;
     private Long availability;
     private Long name;
 
-    public BeeColony( Long extensionsNumber, Long availability, Long name ) {
+//    @OneToMany
+//    private ArrayList<Treatment> treatments;
+//
+//    public ArrayList<Treatment> getTreatments() {
+//        return treatments;
+//    }
+//
+//    public void setTreatments(Treatment treatments) {
+//        this.treatments.add(treatments);
+//    }
+
+    public BeeColony(Long id, Long extensionsNumber, Long availability, Long name ) {
+        this.idBeeColony = id;
         this.extensionsNumber = extensionsNumber;
         this.availability = availability;
         this.name = name;
