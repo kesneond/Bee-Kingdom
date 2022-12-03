@@ -17,7 +17,7 @@ public class TreatmentDTO {
 
     private Long idColony;
 
-    private Long idType;
+    private String idType;
 
     public Date getDateTime() {
         return dateTime;
@@ -48,11 +48,11 @@ public class TreatmentDTO {
         return idColony;
     }
 
-    public Long getIdType() {
+    public String getIdType() {
         return idType;
     }
 
-    public void setIdType(Long idType) {
+    public void setIdType(String idType) {
         this.idType = idType;
     }
 

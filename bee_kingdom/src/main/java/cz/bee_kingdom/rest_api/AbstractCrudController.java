@@ -36,7 +36,6 @@ public abstract class AbstractCrudController<E extends DomainEntity<ID>, D, ID> 
         service.update(toEntityConverter.apply(e));
     }
 
-    //DELETE /users/test
     @DeleteMapping("/{id}")
     public void delete(@PathVariable ID id) {
         service.deleteById(id);

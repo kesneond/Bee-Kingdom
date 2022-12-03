@@ -5,7 +5,7 @@ import cz.bee_kingdom.domain.TreatmentType;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TreatmentTypeService extends AbstractCrudService<TreatmentType, Long> {
+public class TreatmentTypeService extends AbstractCrudService<TreatmentType, String> {
 
     public TreatmentTypeService(TreatmentTypeRepository treatmentTypeRepository) { super(treatmentTypeRepository); }
 }

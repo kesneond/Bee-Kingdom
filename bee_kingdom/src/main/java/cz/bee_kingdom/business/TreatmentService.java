@@ -35,7 +35,7 @@ public class TreatmentService extends AbstractCrudService<Treatment, Long> {
         for (Treatment elem : tmp) {
             TreatmentDTO one = new TreatmentDTO();
             one.setIdColony(elem.getColony().getIdBeeColony());
-            one.setIdType(elem.getTreatmentType().getIdTreatmentType());
+            one.setIdType(elem.getTreatmentType().getID());
             one.setDateTime(elem.getDateTime());
             res.add(one);
         }

@@ -8,11 +8,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 @Entity
-public class TreatmentType implements Serializable, DomainEntity<Long> {
+public class TreatmentType implements Serializable, DomainEntity<String> {
+//    @Id
+//    @GeneratedValue
+//    private Long idTreatmentType;
     @Id
-    @GeneratedValue
-    private Long idTreatmentType;
-
     private String treatmentTypeName;
 
     public TreatmentType() {
@@ -22,13 +22,13 @@ public class TreatmentType implements Serializable, DomainEntity<Long> {
         this.treatmentTypeName = treatmentTypeName;
     }
 
-    public Long getIdTreatmentType() {
-        return idTreatmentType;
-    }
+//    public Long getIdTreatmentType() {
+//        return idTreatmentType;
+//    }
 
-    public void setIdTreatmentType(Long idTreatmentType) {
-        this.idTreatmentType = idTreatmentType;
-    }
+//    public void setIdTreatmentType(Long idTreatmentType) {
+//        this.idTreatmentType = idTreatmentType;
+//    }
 
     public String getTreatmentTypeName() {
         return treatmentTypeName;
@@ -39,7 +39,7 @@ public class TreatmentType implements Serializable, DomainEntity<Long> {
     }
 
     @Override
-    public Long getID() {
-        return idTreatmentType;
+    public String getID() {
+        return treatmentTypeName;
     }
 }

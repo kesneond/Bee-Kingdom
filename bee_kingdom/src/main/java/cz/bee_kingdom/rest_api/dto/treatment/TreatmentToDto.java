@@ -11,7 +11,7 @@ public class TreatmentToDto implements Function<Treatment, TreatmentDTO> {
     public TreatmentDTO apply(Treatment treatment) {
         TreatmentDTO ret = new TreatmentDTO();
         ret.setIdColony(treatment.getColony().getIdBeeColony());
-        ret.setIdType(treatment.getTreatmentType().getIdTreatmentType());
+        ret.setIdType(treatment.getTreatmentType().getID());
         ret.setDateTime(treatment.getDateTime());
         return ret;
     }

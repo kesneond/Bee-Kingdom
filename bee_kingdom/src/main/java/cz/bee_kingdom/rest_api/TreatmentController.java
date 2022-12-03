@@ -46,7 +46,7 @@ public class TreatmentController {
         if(type.isEmpty()) {
             throw new EntityStateException("Invalid Treatment type!");
         }
-        e.setIdType(type.get().getIdTreatmentType());
+        e.setIdType(type.get().getID());
 
         return treatmentToDto.apply(treatmentService.create(treatmentToEntity.apply(e).setColony(tmp.get()).setTreatmentType(type.get())));
     }

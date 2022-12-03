@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/colonies")
 public class BeeColonyController extends AbstractCrudController<BeeColony, BeeColonyDTO, Long> {
 
-    private final TreatmentController treatmentController;
-
-    BeeColonyController(TreatmentController treatmentController, BeeColonyService beeColonyService, BeeColonyToDto beeColonyToDto, BeeColonyToEntity beeColonyToEntity) {
+    BeeColonyController(BeeColonyService beeColonyService, BeeColonyToDto beeColonyToDto, BeeColonyToEntity beeColonyToEntity) {
         super(beeColonyService, beeColonyToDto, beeColonyToEntity);
-        this.treatmentController = treatmentController;
     }
 
 
