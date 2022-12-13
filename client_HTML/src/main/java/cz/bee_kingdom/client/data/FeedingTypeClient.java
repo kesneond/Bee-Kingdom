@@ -69,7 +69,7 @@ public class FeedingTypeClient {
 
     public void delete(String name) {
         setID(name);
-        singleEndpointTemplate
+        singleFeedingTypeEndpoint
                 .request(MediaType.APPLICATION_JSON_VALUE)
                 .delete();
     }

@@ -2,10 +2,7 @@ package cz.bee_kingdom.client.ui;
 
 import cz.bee_kingdom.client.data.TreatmentClient;
 import cz.bee_kingdom.client.data.TreatmentTypeClient;
-import cz.bee_kingdom.client.model.ColonyDTO;
-import cz.bee_kingdom.client.model.ColonyWebModel;
-import cz.bee_kingdom.client.model.TreatmentDTO;
-import cz.bee_kingdom.client.model.TreatmentWebModel;
+import cz.bee_kingdom.client.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -62,5 +59,11 @@ public class TreatmentWebController {
         treatmentClient.create(treatmentDTO);
         model.addAttribute("treatment", new TreatmentDTO()).addAttribute("colonyId", id).addAttribute("types", treatmentTypeClient.readAll());
         return "treatmentsAdd";
+    }
+
+    @GetMapping("/{id_treatment}/delete")
+    public String delete(Model model, @ModelAttribute FeedingDTO feedingDTO, @PathVariable Long id, @PathVariable Long id_treatment) {
+        treatmentClient.delete(id_treatment, id);
+        return this.list(model, id);
     }
 }

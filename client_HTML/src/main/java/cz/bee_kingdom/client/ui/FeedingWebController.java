@@ -4,10 +4,7 @@ import cz.bee_kingdom.client.data.FeedingClient;
 import cz.bee_kingdom.client.data.FeedingTypeClient;
 import cz.bee_kingdom.client.data.TreatmentClient;
 import cz.bee_kingdom.client.data.TreatmentTypeClient;
-import cz.bee_kingdom.client.model.FeedingDTO;
-import cz.bee_kingdom.client.model.FeedingWebModel;
-import cz.bee_kingdom.client.model.TreatmentDTO;
-import cz.bee_kingdom.client.model.TreatmentWebModel;
+import cz.bee_kingdom.client.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -64,5 +61,11 @@ public class FeedingWebController {
         feedingClient.create(feedingDTO);
         model.addAttribute("feeding", new FeedingDTO()).addAttribute("colonyId", id).addAttribute("types", feedingTypeClient.readAll());
         return "feedingsAdd";
+    }
+
+    @GetMapping("/{id_feeding}/delete")
+    public String delete(Model model, @ModelAttribute FeedingDTO feedingDTO, @PathVariable Long id, @PathVariable Long id_feeding) {
+        feedingClient.delete(id_feeding, id);
+        return this.list(model, id);
     }
 }

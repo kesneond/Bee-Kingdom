@@ -69,7 +69,7 @@ public class TreatmentTypeClient {
 
     public void delete(String name) {
         setID(name);
-        singleEndpointTemplate
+        singleTreatmentEndpoint
                 .request(MediaType.APPLICATION_JSON_VALUE)
                 .delete();
     }

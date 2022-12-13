@@ -71,7 +71,7 @@ public class BeeColonyClient {
 
     public void delete(Long name) {
         setID(name);
-        singleEndpointTemplate
+        singleColonyEndpoint
                 .request(MediaType.APPLICATION_JSON_VALUE)
                 .delete();
     }

@@ -58,4 +58,10 @@ public class ColonyWebController {
         model.addAttribute("colony", new ColonyDTO());
         return "coloniesAdd";
     }
+
+    @GetMapping("/{id}/delete")
+    public String delete(Model model, @ModelAttribute ColonyDTO colonyDTO, @PathVariable Long id) {
+        beeColonyClient.delete(id);
+        return this.list(model);
+    }
 }

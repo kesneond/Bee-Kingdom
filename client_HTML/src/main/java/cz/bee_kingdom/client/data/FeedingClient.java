@@ -71,9 +71,10 @@ public class FeedingClient {
                 .put(Entity.entity(feedingDTO, MediaType.APPLICATION_JSON_VALUE));
     }
 
-    public void delete(Long name) {
+    public void delete(Long name, Long id_colony) {
         setID(name);
-        singleEndpointTemplate
+        singleFeedingEndpoint
+                .resolveTemplate("id_colony", id_colony)
                 .request(MediaType.APPLICATION_JSON_VALUE)
                 .delete();
     }

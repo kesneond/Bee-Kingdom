@@ -16,6 +16,7 @@
         <th>Amount</th>
         <th>Type</th>
         <th>Open specific</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tr th:each="t: ${feedings}">
@@ -26,6 +27,11 @@
         <td>
             <a th:href="@{/colonies/{id}/feeding/{tr}(id=${colonyId}, tr=${t.id})}" class="btn btn-outline-dark">
                 Edit
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/colonies/{id}/feeding/{tr}/delete(id=${colonyId}, tr=${t.id})}" class="btn btn-danger">
+                Delete
             </a>
         </td>
     </tr>

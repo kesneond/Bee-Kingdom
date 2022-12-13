@@ -8,6 +8,7 @@ import jakarta.ws.rs.client.WebTarget;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -69,9 +70,10 @@ public class TreatmentClient {
                 .put(Entity.entity(treatmentDTO, MediaType.APPLICATION_JSON_VALUE));
     }
 
-    public void delete(Long name) {
+    public void delete(Long name, Long id_colony) {
         setID(name);
-        singleEndpointTemplate
+        singleTreatmentEndpoint
+                .resolveTemplate("id_colony", id_colony)
                 .request(MediaType.APPLICATION_JSON_VALUE)
                 .delete();
     }
