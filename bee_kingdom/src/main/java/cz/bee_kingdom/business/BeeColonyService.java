@@ -12,5 +12,8 @@ public class BeeColonyService extends AbstractCrudService<BeeColony, Long> {
         super(repository);
     }
 
-
+    @Override
+    public Iterable<BeeColony> readAll() {
+        return super.repository.findAll().stream().sorted((BeeColony a, BeeColony b) -> { return (int)(a.getID()-b.getID());}).toList();
+    }
 }

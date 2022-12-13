@@ -15,6 +15,10 @@
         <th>Availability</th>
         <th>Extensions number</th>
         <th>Open specific</th>
+        <th>Open feeding</th>
+        <th>Open treatment</th>
+        <th>Open note</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tr th:each="c: ${colonies}">
@@ -34,6 +38,16 @@
         <td>
             <a th:href="@{/colonies/{id}/treatment(id=${c.name})}" class="btn btn-outline-dark">
                 Treatment
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/colonies/{id}/note(id=${c.name})}" class="btn btn-outline-dark">
+                Note
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/colonies/{id}/delete}" class="btn btn-danger">
+                Delete
             </a>
         </td>
     </tr>

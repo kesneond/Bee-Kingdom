@@ -30,6 +30,7 @@ public class TreatmentService extends AbstractCrudService<Treatment, Long> {
             one.setId(elem.getID());
             res.add(one);
         }
+        res.sort((TreatmentDTO a, TreatmentDTO b) -> {return (int)(a.getId()-b.getId());});
         return res;
     }
 }
