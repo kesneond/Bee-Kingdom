@@ -56,6 +56,15 @@ public class TreatmentController {
         return treatmentService.readAllByIdBeeColony(id_colony);
     }
 
+    @GetMapping("/{id}")
+    public TreatmentDTO readById(@PathVariable Long id) {
+        Optional<Treatment> tmp = treatmentService.readByID(id);
+        if(tmp.isEmpty()) {
+            throw new EntityStateException("No treatment of this id: " + id);
+        }
+        return treatmentToDto.apply(tmp.get());
+    }
+
     @PutMapping("/{id}")
     public void update(@RequestBody TreatmentDTO e, @PathVariable Long id, @PathVariable Long id_colony) {
         Optional<Treatment> tmp = treatmentService.readByID(id);

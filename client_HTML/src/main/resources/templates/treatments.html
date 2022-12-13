@@ -11,24 +11,27 @@
 <table class="table table-striped">
   <thead>
   <tr>
+    <th>ID</th>
     <th>Date</th>
     <th>Type</th>
     <th>Open specific</th>
   </tr>
   </thead>
   <tr th:each="t: ${treatments}">
+    <td th:text="${t.id}">ID test</td>
     <td th:text="${t.dateTime}">date</td>
     <td th:text="${t.idType}">type</td>
     <td>
-      <a th:href="@{/colonies/{id}/treatment(id=${c.name})}" class="btn btn-outline-dark">
+      <a th:href="@{/colonies/{id}/treatment/{tr}(id=${colonyId}, tr=${t.id})}" class="btn btn-outline-dark">
         Edit
       </a>
     </td>
   </tr>
 
 </table>
-<!--<a th:href="@{/colonies/add}" class="btn btn-outline-dark">-->
-<!--  Add new-->
-<!--</a>-->
+<a th:href="@{/colonies/{id}/treatment/add(id=${colonyId})}" class="btn btn-outline-dark">
+  Add new
+</a>
+<a th:href="@{/colonies}" class="btn btn-outline-dark"> Go back! </a>
 </body>
 </html>

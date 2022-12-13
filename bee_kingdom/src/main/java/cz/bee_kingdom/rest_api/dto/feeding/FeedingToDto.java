@@ -15,6 +15,7 @@ public class FeedingToDto implements Function<Feeding, FeedingDTO> {
         tmp.setFeedingDate(feeding.getFeedingDate());
         tmp.setFeedingType(feeding.getFeedingType().getID());
         tmp.setIdBeeColony(feeding.getBeeColony().getID());
+        tmp.setId(feeding.getID());
 
         return tmp;
     }

@@ -2,19 +2,21 @@ package cz.bee_kingdom.client.model;
 import java.sql.Date;
 
 public class TreatmentDTO {
-    private Date dateTime;
+    public Date dateTime;
 
+    public Long id;
 
-    private Long idColony;
+    public Long idColony;
 
-    private String idType;
+    public String idType;
 
     public TreatmentDTO() {}
 
-    public TreatmentDTO(Date dateTime, Long idColony, String idType) {
+    public TreatmentDTO(Date dateTime, Long idColony, String idType, Long id) {
         this.dateTime = dateTime;
         this.idColony = idColony;
         this.idType = idType;
+        this.id = id;
     }
 
     public Date getDateTime() {
@@ -35,6 +37,14 @@ public class TreatmentDTO {
 
     public void setIdType(String idType) {
         this.idType = idType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override

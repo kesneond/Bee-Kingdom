@@ -27,10 +27,10 @@
 
 <form method="post" action="#" th:action="@{/colonies/{id}/update_colony(id=${current.name})}" th:object="${colony}">
     <label for="availability">
-        <input id="availability" placeholder="Enter availability" th:field="*{extensionsNumber}" type="text">
+        <input id="availability" placeholder="Enter availability" th:field="*{availability}" type="text">
     </label>
     <label for="extensions">
-        <input id="extensions" placeholder="Enter extensions" th:field="*{availability}" type="text">
+        <input id="extensions" placeholder="Enter extensions" th:field="*{extensionsNumber}" type="text">
     </label>
     <label for="submit">
         <input id="submit" type="submit" value="Change user!">

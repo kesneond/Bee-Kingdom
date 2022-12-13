@@ -8,6 +8,7 @@ import java.sql.Date;
 
 @Data
 public class FeedingDTO {
+    private Long id;
     private Date feedingDate;
     private Long amount;
     private Long idBeeColony;
@@ -43,5 +44,13 @@ public class FeedingDTO {
 
     public void setFeedingType(String feedingType) {
         this.feedingType = feedingType;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

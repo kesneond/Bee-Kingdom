@@ -1,12 +1,12 @@
 package cz.bee_kingdom.client.model;
 
-public class TreatmentWebModel extends TreatmentDTO {
+public class TreatmentTypeWebModel extends TreatmentTypeDTO{
     private boolean nameError;
 
-    public TreatmentWebModel() {}
+    public TreatmentTypeWebModel() {}
 
-    public TreatmentWebModel(boolean nameError, TreatmentDTO treatmentDTO) {
-        super(treatmentDTO.getDateTime(), treatmentDTO.getIdColony(), treatmentDTO.getIdType(), treatmentDTO.getId());
+    public TreatmentTypeWebModel(boolean nameError, TreatmentTypeDTO treatmentDTO) {
+        super(treatmentDTO.getName());
         this.nameError = nameError;
     }
 
