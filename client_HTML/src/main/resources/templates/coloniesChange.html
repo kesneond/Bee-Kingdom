@@ -26,15 +26,21 @@
 <h1>Fill the form to update colony</h1>
 
 <form method="post" action="#" th:action="@{/colonies/{id}/update_colony(id=${current.name})}" th:object="${colony}">
-    <label for="availability">
-        <input id="availability" placeholder="Enter availability" th:field="*{availability}" type="text">
-    </label>
-    <label for="extensions">
-        <input id="extensions" placeholder="Enter extensions" th:field="*{extensionsNumber}" type="text">
-    </label>
-    <label for="submit">
-        <input id="submit" type="submit" value="Change user!">
-    </label>
+    <div class="mb-3 row">
+        <label class="form-label" for="availability">
+            <input class="form-control" id="availability" placeholder="Enter availability" th:field="*{availability}" type="text">
+        </label>
+    </div>
+    <div class="mb-3 row">
+        <label class="form-label" for="extensions">
+            <input class="form-control" id="extensions" placeholder="Enter extensions" th:field="*{extensionsNumber}" type="text">
+        </label>
+    </div>
+    <div class="mb-3 row">
+        <label class="form-label" for="submit">
+            <input class="btn btn-primary mb-3" id="submit" type="submit" value="Change colony!">
+        </label>
+    </div>
 </form>
 
 <a th:href="@{/colonies}" class="btn btn-outline-dark"> Go back! </a>

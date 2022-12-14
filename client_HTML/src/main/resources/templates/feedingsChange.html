@@ -26,21 +26,29 @@
 <h1>Fill the form to update feeding of the colony</h1>
 
 <form method="post" action="#" th:action="@{/colonies/{id}/feeding/{id_tr}/update_feeding(id=${current.idColony}, id_tr=${current.id})}" th:object="${feeding}">
-  <label for="date">
-    <input id="date" placeholder="Enter date" th:value="${current.feedingDate}" th:field="*{feedingDate}" type="date">
-  </label>
-  <label for="amount">
-    <input id="amount" placeholder="Enter amount" th:value="${current.amount}" th:field="*{amount}" type="number">
-  </label>
-  <label for="type">
-    <select id="type" class="form-select form-select-sm" aria-label=".form-select-sm example" th:field="*{feedingType}">
-      <option selected th:value="${current.feedingType}">Open feeding type select menu</option>
-      <option th:each="t: ${types}" th:value="${t.name}" th:text="${t.name}"> </option>
-    </select>
-  </label>
-  <label for="submit">
-    <input id="submit" type="submit" value="Change feeding!">
-  </label>
+  <div class="mb-3 row">
+    <label class="form-label" for="date">
+      <input class="form-control" id="date" placeholder="Enter date" th:value="${current.feedingDate}" th:field="*{feedingDate}" type="date">
+    </label>
+  </div>
+  <div class="mb-3 row">
+    <label class="form-label" for="amount">
+      <input class="form-control" id="amount" placeholder="Enter amount" th:value="${current.amount}" th:field="*{amount}" type="number">
+    </label>
+  </div>
+  <div class="mb-3 row">
+    <label class="form-label" for="type">
+      <select id="type" class="form-select form-select-sm" aria-label=".form-select-sm example" th:field="*{feedingType}">
+        <option class="form-control" selected th:value="${current.feedingType}">Open feeding type select menu</option>
+        <option class="form-control" th:each="t: ${types}" th:value="${t.name}" th:text="${t.name}"> </option>
+      </select>
+    </label>
+  </div>
+  <div class="mb-3 row">
+    <label class="form-label" for="submit">
+      <input class="btn btn-primary mb-3" id="submit" type="submit" value="Change feeding!">
+    </label>
+  </div>
 </form>
 
 <a th:href="@{/colonies/{id}/feeding(id=${current.idColony})}" class="btn btn-outline-dark"> Go back! </a>

@@ -24,18 +24,24 @@
 <h1>Fill the form to update treatment of the colony</h1>
 
 <form method="post" action="#" th:action="@{/colonies/{id}/treatment/{id_tr}/update_treatment(id=${current.idColony}, id_tr=${current.id})}" th:object="${treatment}">
-  <label for="date">
-    <input id="date" placeholder="Enter date" th:field="*{dateTime}" type="date">
-  </label>
-  <label for="type">
-    <select id="type" class="form-select form-select-sm" aria-label=".form-select-sm example" th:field="*{idType}">
-      <option selected th:value="nic">Open treatment type select menu</option>
-      <option th:each="t: ${types}" th:value="${t.name}" th:text="${t.name}"> </option>
-    </select>
-  </label>
-  <label for="submit">
-    <input id="submit" type="submit" value="Change treatment!">
-  </label>
+  <div class="mb-3 row">
+    <label class="form-label" for="date">
+      <input class="form-control" id="date" placeholder="Enter date" th:field="*{dateTime}" type="date">
+    </label>
+  </div>
+  <div class="mb-3 row">
+    <label class="form-label" for="type">
+      <select id="type" class="form-select form-select-sm" aria-label=".form-select-sm example" th:field="*{idType}">
+        <option class="form-control" selected th:value="nic">Open treatment type select menu</option>
+        <option class="form-control" th:each="t: ${types}" th:value="${t.name}" th:text="${t.name}"> </option>
+      </select>
+    </label>
+  </div>
+  <div class="mb-3 row">
+    <label class="form-label" for="submit">
+      <input class="btn btn-primary mb-3" id="submit" type="submit" value="Change treatment!">
+    </label>
+  </div>
 </form>
 
 <a th:href="@{/colonies/{id}/treatment(id=${current.idColony})}" class="btn btn-outline-dark"> Go back! </a>

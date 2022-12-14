@@ -9,18 +9,25 @@
 <body>
 <h1> Add new colony to your database </h1>
 <form method="post" action="#" th:action="@{/colonies/add/create}" th:object="${colony}">
-    <label for="name">
-        <input id="name" placeholder="Enter name" th:field="*{name}" type="text">
-    </label>
-    <label for="availability">
-        <input id="availability" placeholder="Enter availability" th:field="*{availability}" type="text">
-    </label>
-    <label for="extensions">
-        <input id="extensions" placeholder="Enter extensions" th:field="*{extensionsNumber}" type="text">
-    </label>
-    <label for="submit">
-        <input id="submit" type="submit" value="Create colony!">
-    </label>
+    <div class="mb-3 row">
+        <label class="form-label" for="name">
+            <input class="form-control" id="name" placeholder="Enter name" th:field="*{name}" type="text">
+        </label>
+    </div>
+    <div class="mb-3 row">
+        <label class="form-label" for="availability">
+            <input class="form-control" id="availability" placeholder="Enter availability" th:field="*{availability}" type="text">
+        </label>
+    </div>
+    <div class="mb-3 row">
+        <label class="form-label" for="extensions">
+            <input class="form-control" id="extensions" placeholder="Enter extensions" th:field="*{extensionsNumber}" type="text">
+        </label>
+    </div>
+    <div class="mb-3 row">
+        <label class="form-label" for="submit">
+            <input class="btn btn-primary mb-3" id="submit" type="submit" value="Create colony!">
+        </label>
 </form>
 
 <a th:href="@{/colonies}" class="btn btn-outline-dark"> Go back! </a>
