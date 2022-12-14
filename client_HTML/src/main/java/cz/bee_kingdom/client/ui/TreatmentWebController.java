@@ -56,7 +56,11 @@ public class TreatmentWebController {
     public String create(Model model, @ModelAttribute TreatmentDTO treatmentDTO, @PathVariable Long id) {
         treatmentDTO.setIdColony(id);
         System.out.println(treatmentDTO);
-        treatmentClient.create(treatmentDTO);
+        try {
+            treatmentClient.create(treatmentDTO);
+        } catch (Exception e) {
+            return "errorHandle";
+        }
         model.addAttribute("treatment", new TreatmentDTO()).addAttribute("colonyId", id).addAttribute("types", treatmentTypeClient.readAll());
         return "treatmentsAdd";
     }

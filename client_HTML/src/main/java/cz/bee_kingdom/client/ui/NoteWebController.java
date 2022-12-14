@@ -61,7 +61,11 @@ public class NoteWebController {
     public String create(Model model, @ModelAttribute NoteDTO noteDTO, @PathVariable Long id) {
         noteDTO.setIdColony(id);
         System.out.println(noteDTO);
-        noteClient.create(noteDTO);
+        try {
+            noteClient.create(noteDTO);
+        } catch (Exception e) {
+            return "errorHandle";
+        }
         model.addAttribute("note", new NoteDTO()).addAttribute("colonyId", id).addAttribute("types", noteTypeClient.readAll());
         return "notesAdd";
     }

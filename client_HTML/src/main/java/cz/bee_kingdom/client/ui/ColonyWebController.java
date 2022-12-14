@@ -3,6 +3,8 @@ package cz.bee_kingdom.client.ui;
 import cz.bee_kingdom.client.data.BeeColonyClient;
 import cz.bee_kingdom.client.model.ColonyDTO;
 import cz.bee_kingdom.client.model.ColonyWebModel;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +40,11 @@ public class ColonyWebController {
     public String update(Model model, @ModelAttribute ColonyDTO colonyDTO, @PathVariable Long id) {
         colonyDTO.setName(id);
         System.out.println("test put: " + colonyDTO);
-        beeColonyClient.update(colonyDTO);
+        try {
+            beeColonyClient.update(colonyDTO);
+        } catch (Exception e) {
+            return "errorHandle";
+        }
         ColonyWebModel tmp = beeColonyClient.readById(colonyDTO.getName());
         System.out.println("result put: " + tmp);
         model.addAttribute("current", tmp);
@@ -54,7 +60,11 @@ public class ColonyWebController {
     @PostMapping("/add/create")
     public String create(Model model, @ModelAttribute ColonyDTO colonyDTO) {
         System.out.println(colonyDTO);
-        beeColonyClient.create(colonyDTO);
+        try {
+            beeColonyClient.create(colonyDTO);
+        } catch (Exception e) {
+            return "errorHandle";
+        }
         model.addAttribute("colony", new ColonyDTO());
         return "coloniesAdd";
     }

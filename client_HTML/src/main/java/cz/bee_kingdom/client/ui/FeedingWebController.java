@@ -58,7 +58,11 @@ public class FeedingWebController {
     public String create(Model model, @ModelAttribute FeedingDTO feedingDTO, @PathVariable Long id) {
         feedingDTO.setIdColony(id);
         System.out.println(feedingDTO);
-        feedingClient.create(feedingDTO);
+        try {
+            feedingClient.create(feedingDTO);
+        } catch (Exception e) {
+            return "errorHandle";
+        }
         model.addAttribute("feeding", new FeedingDTO()).addAttribute("colonyId", id).addAttribute("types", feedingTypeClient.readAll());
         return "feedingsAdd";
     }
