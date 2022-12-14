@@ -1,17 +1,13 @@
-package cz.bee_kingdom.rest_api.dto.note;
-
-import cz.bee_kingdom.domain.TypeNote;
-import lombok.Data;
+package cz.bee_kingdom.client.model;
 
 import java.sql.Date;
 
-@Data
 public class NoteDTO {
-    private Long id;
-    private String text;
-    private Date date;
-    private String typeNote;
-    private Long idColony;
+    public Long id;
+    public String text;
+    public Date date;
+    public String typeNote;
+    public Long idColony;
 
     public Long getId() {
         return id;
@@ -19,6 +15,17 @@ public class NoteDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public NoteDTO(Long id, String text, Date date, String type, Long idColony) {
+        this.id = id;
+        this.text = text;
+        this.date = date;
+        this.typeNote = type;
+        this.idColony = idColony;
+    }
+
+    public NoteDTO() {
     }
 
     public String getText() {
@@ -41,8 +48,8 @@ public class NoteDTO {
         return typeNote;
     }
 
-    public void setTypeNote(String typeNote) {
-        this.typeNote = typeNote;
+    public void setTypeNote(String type) {
+        this.typeNote = type;
     }
 
     public Long getIdColony() {

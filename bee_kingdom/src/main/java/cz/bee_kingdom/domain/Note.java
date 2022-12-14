@@ -1,7 +1,5 @@
 package cz.bee_kingdom.domain;
 
-import cz.bee_kingdom.rest_api.dto.note.NoteDTO;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -12,6 +10,7 @@ public class Note implements Serializable, DomainEntity<Long> {
     @GeneratedValue
     private Long idNote;
 
+    @ManyToOne
     private TypeNote typeNote;
 
     private String text;
@@ -20,8 +19,7 @@ public class Note implements Serializable, DomainEntity<Long> {
     @ManyToOne
     BeeColony colony;
 
-    public Note(TypeNote typeNote, String text, Date dateTime) {
-        this.typeNote = typeNote;
+    public Note(String text, Date dateTime) {
         this.text = text;
         this.dateTime = dateTime;
     }
@@ -32,8 +30,9 @@ public class Note implements Serializable, DomainEntity<Long> {
         return typeNote;
     }
 
-    public void setTypeNote(TypeNote typeNote) {
+    public Note setTypeNote(TypeNote typeNote) {
         this.typeNote = typeNote;
+        return this;
     }
 
     public String getText() {

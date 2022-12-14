@@ -10,6 +10,6 @@ public class NoteToEntity implements Function<NoteDTO, Note> {
 
     @Override
     public Note apply(NoteDTO noteDTO) {
-        return new Note(noteDTO.getTypeNote(), noteDTO.getText(), noteDTO.getDate());
+        return new Note(noteDTO.getText(), noteDTO.getDate());
     }
 }
