@@ -25,7 +25,7 @@
 </table>
 <h1>Fill the form to update note of the colony</h1>
 
-<form method="post" action="#" th:action="@{/colonies/{id}/note/{id_tr}/update_note(id=${current.idColony}, id_tr=${current.id})}" th:object="${note}">
+<form method="post" action="#" th:action="@{/colonies/{id}/note/{id_tr}/update_note(id=${current.idColony}, id_tr=${current.id})}" th:object="${current}">
     <div class="mb-3 row">
         <label class="form-label" for="date">
             <input class="form-control" id="date" placeholder="Enter date" th:value="${current.date}" th:field="*{date}" type="date">

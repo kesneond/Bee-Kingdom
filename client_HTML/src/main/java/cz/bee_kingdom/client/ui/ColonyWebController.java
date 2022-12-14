@@ -30,7 +30,7 @@ public class ColonyWebController {
     public String current(Model model, @PathVariable Long id) {
         ColonyWebModel tmp = beeColonyClient.readById(id);
         System.out.println(tmp);
-        model.addAttribute("colony", new ColonyDTO()).addAttribute("current", tmp);
+        model.addAttribute("current", tmp);
         return "coloniesChange";
     }
 
@@ -41,7 +41,7 @@ public class ColonyWebController {
         beeColonyClient.update(colonyDTO);
         ColonyWebModel tmp = beeColonyClient.readById(colonyDTO.getName());
         System.out.println("result put: " + tmp);
-        model.addAttribute("colony", new ColonyDTO()).addAttribute("current", tmp);
+        model.addAttribute("current", tmp);
         return "coloniesChange";
     }
 

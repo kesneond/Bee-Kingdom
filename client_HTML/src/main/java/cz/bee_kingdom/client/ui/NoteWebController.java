@@ -36,7 +36,7 @@ public class NoteWebController {
     public String current(Model model, @PathVariable Long id, @PathVariable Long id_note) {
         NoteWebModel tmp = noteClient.readById(id_note, id);
         System.out.println(tmp);
-        model.addAttribute("note", new NoteDTO()).addAttribute("current", tmp).addAttribute("types", noteTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", noteTypeClient.readAll());
         return "notesChange";
     }
 
@@ -47,7 +47,7 @@ public class NoteWebController {
         noteClient.update(noteDTO, id_feeding, id);
         NoteWebModel tmp = noteClient.readById(id_feeding, id);
         System.out.println("result put: " + tmp);
-        model.addAttribute("note", new NoteDTO()).addAttribute("current", tmp).addAttribute("types", noteTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", noteTypeClient.readAll());
         return "notesChange";
     }
 

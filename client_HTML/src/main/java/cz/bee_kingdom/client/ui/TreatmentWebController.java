@@ -31,7 +31,7 @@ public class TreatmentWebController {
     public String current(Model model, @PathVariable Long id, @PathVariable Long id_treatment) {
         TreatmentWebModel tmp = treatmentClient.readById(id_treatment, id);
         System.out.println(tmp);
-        model.addAttribute("treatment", new TreatmentDTO()).addAttribute("current", tmp).addAttribute("types", treatmentTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", treatmentTypeClient.readAll());
         return "treatmentsChange";
     }
 
@@ -42,7 +42,7 @@ public class TreatmentWebController {
         treatmentClient.update(treatmentDTO, id_treatment, id);
         TreatmentWebModel tmp = treatmentClient.readById(id_treatment, id);
         System.out.println("result put: " + tmp);
-        model.addAttribute("treatment", new TreatmentDTO()).addAttribute("current", tmp).addAttribute("types", treatmentTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", treatmentTypeClient.readAll());
         return "treatmentsChange";
     }
 

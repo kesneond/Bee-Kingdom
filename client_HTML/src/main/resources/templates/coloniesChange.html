@@ -25,7 +25,7 @@
 </table>
 <h1>Fill the form to update colony</h1>
 
-<form method="post" action="#" th:action="@{/colonies/{id}/update_colony(id=${current.name})}" th:object="${colony}">
+<form method="post" action="#" th:action="@{/colonies/{id}/update_colony(id=${current.name})}" th:object="${current}">
     <div class="mb-3 row">
         <label class="form-label" for="availability">
             <input class="form-control" id="availability" placeholder="Enter availability" th:field="*{availability}" type="text">

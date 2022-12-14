@@ -33,7 +33,7 @@ public class FeedingWebController {
     public String current(Model model, @PathVariable Long id, @PathVariable Long id_feeding) {
         FeedingWebModel tmp = feedingClient.readById(id_feeding, id);
         System.out.println(tmp);
-        model.addAttribute("feeding", new FeedingDTO()).addAttribute("current", tmp).addAttribute("types", feedingTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", feedingTypeClient.readAll());
         return "feedingsChange";
     }
 
@@ -44,7 +44,7 @@ public class FeedingWebController {
         feedingClient.update(feedingDTO, id_feeding, id);
         FeedingWebModel tmp = feedingClient.readById(id_feeding, id);
         System.out.println("result put: " + tmp);
-        model.addAttribute("feeding", new FeedingDTO()).addAttribute("current", tmp).addAttribute("types", feedingTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", feedingTypeClient.readAll());
         return "feedingsChange";
     }
 

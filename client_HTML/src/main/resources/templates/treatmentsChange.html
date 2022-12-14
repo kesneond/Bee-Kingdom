@@ -23,7 +23,7 @@
 </table>
 <h1>Fill the form to update treatment of the colony</h1>
 
-<form method="post" action="#" th:action="@{/colonies/{id}/treatment/{id_tr}/update_treatment(id=${current.idColony}, id_tr=${current.id})}" th:object="${treatment}">
+<form method="post" action="#" th:action="@{/colonies/{id}/treatment/{id_tr}/update_treatment(id=${current.idColony}, id_tr=${current.id})}" th:object="${current}">
   <div class="mb-3 row">
     <label class="form-label" for="date">
       <input class="form-control" id="date" placeholder="Enter date" th:field="*{dateTime}" type="date">
