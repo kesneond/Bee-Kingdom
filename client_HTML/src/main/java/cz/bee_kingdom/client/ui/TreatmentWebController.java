@@ -61,6 +61,7 @@ public class TreatmentWebController {
         try {
             treatmentClient.create(treatmentDTO);
         } catch (Exception e) {
+            model.addAttribute("error", "Treatment can't be created, check if you filled whole form!");
             return "errorHandle";
         }
         model.addAttribute("treatment", new TreatmentDTO())

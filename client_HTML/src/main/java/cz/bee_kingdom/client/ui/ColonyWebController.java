@@ -43,6 +43,7 @@ public class ColonyWebController {
         try {
             beeColonyClient.update(colonyDTO);
         } catch (Exception e) {
+            model.addAttribute("error", "Colony can't be updated, check if you filled whole form");
             return "errorHandle";
         }
         ColonyWebModel tmp = beeColonyClient.readById(colonyDTO.getName());
@@ -63,6 +64,7 @@ public class ColonyWebController {
         try {
             beeColonyClient.create(colonyDTO);
         } catch (Exception e) {
+            model.addAttribute("error", "Colony can't be created, check if you filled whole form!");
             return "errorHandle";
         }
         model.addAttribute("colony", new ColonyDTO()).addAttribute("success", "Colony was added!");

@@ -61,6 +61,7 @@ public class FeedingWebController {
         try {
             feedingClient.create(feedingDTO);
         } catch (Exception e) {
+            model.addAttribute("error", "Feeding can't be created, check if you filled whole form!");
             return "errorHandle";
         }
         model.addAttribute("feeding", new FeedingDTO())

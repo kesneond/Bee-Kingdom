@@ -75,6 +75,7 @@ public class NoteWebController {
         try {
             noteClient.create(noteDTO);
         } catch (Exception e) {
+            model.addAttribute("error", "Note can't be created, check if you filled whole form!");
             return "errorHandle";
         }
         model.addAttribute("note", new NoteDTO())
