@@ -50,8 +50,14 @@ public class NoteController {
     }
 
     @GetMapping()
-    public Collection<NoteDTO> readAll() {
-        ArrayList<Note> tmp = (ArrayList<Note>) noteService.readAll();
+    public Collection<NoteDTO> readAll(@RequestParam(value="type", required = false)String typeRes) {
+        System.out.println(typeRes);
+        ArrayList<Note> tmp = new ArrayList<>();
+        if(typeRes == null) {
+            tmp = (ArrayList<Note>) noteService.readAll();
+        } else {
+            tmp = (ArrayList<Note>) noteService.filteredReadAll(typeRes);
+        }
         ArrayList<NoteDTO> res = new ArrayList<NoteDTO>();
 
         for( var elem : tmp ) {

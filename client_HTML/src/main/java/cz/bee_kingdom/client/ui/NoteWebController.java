@@ -4,15 +4,15 @@ import cz.bee_kingdom.client.data.FeedingClient;
 import cz.bee_kingdom.client.data.FeedingTypeClient;
 import cz.bee_kingdom.client.data.NoteClient;
 import cz.bee_kingdom.client.data.NoteTypeClient;
-import cz.bee_kingdom.client.model.FeedingDTO;
-import cz.bee_kingdom.client.model.FeedingWebModel;
-import cz.bee_kingdom.client.model.NoteDTO;
-import cz.bee_kingdom.client.model.NoteWebModel;
+import cz.bee_kingdom.client.model.*;
+import jakarta.ws.rs.QueryParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.concurrent.ArrayBlockingQueue;
 
 @Controller
 @RequestMapping("/colonies/{id}/note")
@@ -26,9 +26,20 @@ public class NoteWebController {
     }
 
     @GetMapping
-    public String list(Model model, @PathVariable Long id) {
-        Collection<NoteWebModel> tmp = noteClient.readAll(id);
-        model.addAttribute("notes", tmp).addAttribute("colonyId", id);
+    public String list(Model model, @PathVariable Long id, @RequestParam(value="type", required = false)String typeRes) {
+        Collection<NoteWebModel> tmp;
+
+        if(typeRes == null || typeRes.equals("all")){
+            tmp = noteClient.readAll(id);
+        } else {
+            tmp = noteClient.filteredReadAll(id, typeRes);
+        }
+        Collection<NoteTypeWebModel> types = noteTypeClient.readAll();
+        NoteTypeDTO typeFill = new NoteTypeDTO();
+        model.addAttribute("notes", tmp)
+                .addAttribute("colonyId", id)
+                .addAttribute("types", types)
+                .addAttribute("typeFill", typeFill);
         return "notes";
     }
 
@@ -76,6 +87,6 @@ public class NoteWebController {
     @GetMapping("/{id_note}/delete")
     public String delete(Model model, @ModelAttribute NoteDTO noteDTO, @PathVariable Long id, @PathVariable Long id_note) {
         noteClient.delete(id_note, id);
-        return this.list(model, id);
+        return this.list(model, id, "");
     }
 }

@@ -44,6 +44,15 @@ public class NoteClient {
         return Arrays.asList(res);
     }
 
+    public Collection<NoteWebModel> filteredReadAll(Long idColony, String type) {
+        var res = allNoteEndpoint
+                .resolveTemplate("id_colony", idColony)
+                .queryParam("type", type)
+                .request(MediaType.APPLICATION_JSON_VALUE)
+                .get(NoteWebModel[].class);
+        return Arrays.asList(res);
+    }
+
     public void setID(Long name) {
         singleNoteEndpoint = singleEndpointTemplate.resolveTemplate("id", name);
     }

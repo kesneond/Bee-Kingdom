@@ -8,6 +8,25 @@
 </head>
 <body>
 <h1>Treatment management</h1>
+
+<h3>Filter: </h3>
+<form method="get" action="#" th:action="@{/colonies/{id}/note(id=${colonyId})}" th:object="${types}">
+  <div class="mb-3 row">
+    <label class="form-label" for="type">
+      <select id="type" class="form-select form-select-sm" aria-label=".form-select-sm example" th:name="type">
+        <option class="form-control" selected th:value="all">Open note type select menu</option>
+        <option class="form-control" th:each="t: ${types}" th:value="${t.name}" th:text="${t.name}"> </option>
+      </select>
+    </label>
+  </div>
+  <div class="mb-3 row">
+    <label class="form-label" for="submit">
+      <input class="btn btn-primary mb-3" id="submit" type="submit" value="Filter!">
+      <input class="btn btn-warning mb-3" id="submit2" type="submit" value="Remove filter!">
+    </label>
+  </div>
+</form>
+
 <table class="table table-striped">
   <thead>
   <tr>
