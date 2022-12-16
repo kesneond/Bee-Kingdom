@@ -43,6 +43,8 @@
     </div>
 </form>
 
+<div class="alert alert-success" role="alert" th:text="${success}" th:if="${success}"></div>
+
 <a th:href="@{/colonies}" class="btn btn-outline-dark"> Go back! </a>
 </body>
 </html>

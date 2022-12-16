@@ -28,7 +28,10 @@
         <label class="form-label" for="submit">
             <input class="btn btn-primary mb-3" id="submit" type="submit" value="Create colony!">
         </label>
+    </div>
 </form>
+
+<div class="alert alert-success" role="alert" th:text="${success}" th:if="${success}"></div>
 
 <a th:href="@{/colonies}" class="btn btn-outline-dark"> Go back! </a>
 </body>

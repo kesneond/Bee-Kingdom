@@ -44,7 +44,7 @@ public class FeedingWebController {
         feedingClient.update(feedingDTO, id_feeding, id);
         FeedingWebModel tmp = feedingClient.readById(id_feeding, id);
         System.out.println("result put: " + tmp);
-        model.addAttribute("current", tmp).addAttribute("types", feedingTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", feedingTypeClient.readAll()).addAttribute("success", "Feeding was changed!");
         return "feedingsChange";
     }
 
@@ -63,7 +63,10 @@ public class FeedingWebController {
         } catch (Exception e) {
             return "errorHandle";
         }
-        model.addAttribute("feeding", new FeedingDTO()).addAttribute("colonyId", id).addAttribute("types", feedingTypeClient.readAll());
+        model.addAttribute("feeding", new FeedingDTO())
+                .addAttribute("colonyId", id)
+                .addAttribute("types", feedingTypeClient.readAll())
+                .addAttribute("success", "Feeding was added!");
         return "feedingsAdd";
     }
 

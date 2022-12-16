@@ -47,7 +47,7 @@ public class NoteWebController {
         noteClient.update(noteDTO, id_feeding, id);
         NoteWebModel tmp = noteClient.readById(id_feeding, id);
         System.out.println("result put: " + tmp);
-        model.addAttribute("current", tmp).addAttribute("types", noteTypeClient.readAll());
+        model.addAttribute("current", tmp).addAttribute("types", noteTypeClient.readAll()).addAttribute("success", "Note was changed!");
         return "notesChange";
     }
 
@@ -66,7 +66,10 @@ public class NoteWebController {
         } catch (Exception e) {
             return "errorHandle";
         }
-        model.addAttribute("note", new NoteDTO()).addAttribute("colonyId", id).addAttribute("types", noteTypeClient.readAll());
+        model.addAttribute("note", new NoteDTO())
+                .addAttribute("colonyId", id)
+                .addAttribute("types", noteTypeClient.readAll())
+                .addAttribute("success", "Note was added!");
         return "notesAdd";
     }
 

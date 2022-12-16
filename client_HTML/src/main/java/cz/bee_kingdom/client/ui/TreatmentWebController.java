@@ -42,7 +42,9 @@ public class TreatmentWebController {
         treatmentClient.update(treatmentDTO, id_treatment, id);
         TreatmentWebModel tmp = treatmentClient.readById(id_treatment, id);
         System.out.println("result put: " + tmp);
-        model.addAttribute("current", tmp).addAttribute("types", treatmentTypeClient.readAll());
+        model.addAttribute("current", tmp)
+                .addAttribute("types", treatmentTypeClient.readAll())
+                .addAttribute("success", "Treatment was changed!");
         return "treatmentsChange";
     }
 
@@ -61,7 +63,10 @@ public class TreatmentWebController {
         } catch (Exception e) {
             return "errorHandle";
         }
-        model.addAttribute("treatment", new TreatmentDTO()).addAttribute("colonyId", id).addAttribute("types", treatmentTypeClient.readAll());
+        model.addAttribute("treatment", new TreatmentDTO())
+                .addAttribute("colonyId", id)
+                .addAttribute("types", treatmentTypeClient.readAll())
+                .addAttribute("success", "Treatment was added!");
         return "treatmentsAdd";
     }
 

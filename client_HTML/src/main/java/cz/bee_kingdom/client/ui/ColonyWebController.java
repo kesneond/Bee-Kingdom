@@ -47,7 +47,7 @@ public class ColonyWebController {
         }
         ColonyWebModel tmp = beeColonyClient.readById(colonyDTO.getName());
         System.out.println("result put: " + tmp);
-        model.addAttribute("current", tmp);
+        model.addAttribute("current", tmp).addAttribute("success", "Colony was changed!");
         return "coloniesChange";
     }
 
@@ -65,7 +65,7 @@ public class ColonyWebController {
         } catch (Exception e) {
             return "errorHandle";
         }
-        model.addAttribute("colony", new ColonyDTO());
+        model.addAttribute("colony", new ColonyDTO()).addAttribute("success", "Colony was added!");
         return "coloniesAdd";
     }
 
