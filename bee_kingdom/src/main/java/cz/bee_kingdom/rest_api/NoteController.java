@@ -50,13 +50,13 @@ public class NoteController {
     }
 
     @GetMapping()
-    public Collection<NoteDTO> readAll(@RequestParam(value="type", required = false)String typeRes) {
+    public Collection<NoteDTO> readAll(@PathVariable Long id_colony, @RequestParam(value="type", required = false)String typeRes) {
         System.out.println(typeRes);
         ArrayList<Note> tmp = new ArrayList<>();
         if(typeRes == null) {
-            tmp = (ArrayList<Note>) noteService.readAll();
+            tmp = (ArrayList<Note>) noteService.readAllByColony(id_colony);
         } else {
-            tmp = (ArrayList<Note>) noteService.filteredReadAll(typeRes);
+            tmp = (ArrayList<Note>) noteService.filteredReadAll(typeRes, id_colony);
         }
         ArrayList<NoteDTO> res = new ArrayList<NoteDTO>();
 

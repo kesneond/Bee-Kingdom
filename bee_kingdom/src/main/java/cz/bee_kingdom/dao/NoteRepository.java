@@ -10,5 +10,7 @@ import java.util.Collection;
 @Repository
 public interface NoteRepository extends JpaRepository<Note, Long>, CrudRepository<Note, Long> {
 
-    public Collection<Note> findAllByTypeNoteIs(TypeNote type);
+    public Collection<Note> findAllByColonyIdBeeColony(Long colony_idBeeColony);
+
+    public Collection<Note> findAllByTypeNoteIsAndColonyIdBeeColony(TypeNote typeNote, Long colony_idBeeColony);
 }

@@ -16,8 +16,12 @@ public class NoteService extends AbstractCrudService<Note, Long> {
         this.noteRepository = noteRepository;
     }
 
-    public Collection<Note> filteredReadAll(String type){
+    public Collection<Note> readAllByColony(Long id) {
+        return noteRepository.findAllByColonyIdBeeColony(id);
+    }
+
+    public Collection<Note> filteredReadAll(String type, Long id){
         TypeNote tmp = new TypeNote(type);
-        return noteRepository.findAllByTypeNoteIs(tmp);
+        return noteRepository.findAllByTypeNoteIsAndColonyIdBeeColony(tmp, id);
     }
 }

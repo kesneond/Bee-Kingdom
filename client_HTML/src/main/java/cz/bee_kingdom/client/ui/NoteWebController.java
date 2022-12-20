@@ -88,6 +88,6 @@ public class NoteWebController {
     @GetMapping("/{id_note}/delete")
     public String delete(Model model, @ModelAttribute NoteDTO noteDTO, @PathVariable Long id, @PathVariable Long id_note) {
         noteClient.delete(id_note, id);
-        return this.list(model, id, "");
+        return this.list(model, id, "all");
     }
 }
