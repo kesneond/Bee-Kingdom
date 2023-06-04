@@ -27,8 +27,10 @@ public class TreatmentService extends AbstractCrudService<Treatment, Long> {
             one.setIdColony(elem.getColony().getIdBeeColony());
             one.setIdType(elem.getTreatmentType().getID());
             one.setDateTime(elem.getDateTime());
+            one.setId(elem.getID());
             res.add(one);
         }
+        res.sort((TreatmentDTO a, TreatmentDTO b) -> {return (int)(a.getId()-b.getId());});
         return res;
     }
 }

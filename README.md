@@ -13,4 +13,4 @@ Takto vypadá datový model naší databáze, N:M vazba se nachází mezi entita
 
 ## **Komplexní dotaz**
 
-Komplexní dotaz by samozřejmě mohlo vypadat např. Jaké druhy léčení byly použity u určitého včelstva. Obdobný dotaz by mohl být na typy krmiva.
+Komplexní dotaz by samozřejmě mohlo vypadat např. Na filtrování poznámek, podle druhu poznámky.

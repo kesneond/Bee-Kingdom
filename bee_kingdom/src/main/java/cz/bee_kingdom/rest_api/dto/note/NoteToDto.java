@@ -13,8 +13,9 @@ public class NoteToDto implements Function<Note, NoteDTO> {
         NoteDTO tmp = new NoteDTO();
         tmp.setDate(note.getDateTime());
         tmp.setText(note.getText());
-        tmp.setTypeNote(note.getTypeNote());
+        tmp.setTypeNote(note.getTypeNote().getID());
         tmp.setIdColony(note.getColony().getIdBeeColony());
+        tmp.setId(note.getID());
 
         return tmp;
     }

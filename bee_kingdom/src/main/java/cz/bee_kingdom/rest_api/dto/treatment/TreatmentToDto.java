@@ -13,6 +13,7 @@ public class TreatmentToDto implements Function<Treatment, TreatmentDTO> {
         ret.setIdColony(treatment.getColony().getIdBeeColony());
         ret.setIdType(treatment.getTreatmentType().getID());
         ret.setDateTime(treatment.getDateTime());
+        ret.setId(treatment.getID());
         return ret;
     }
 }

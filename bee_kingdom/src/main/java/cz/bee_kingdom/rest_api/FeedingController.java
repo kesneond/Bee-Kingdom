@@ -7,9 +7,11 @@ import cz.bee_kingdom.business.FeedingTypeService;
 import cz.bee_kingdom.domain.BeeColony;
 import cz.bee_kingdom.domain.Feeding;
 import cz.bee_kingdom.domain.FeedingType;
+import cz.bee_kingdom.domain.Treatment;
 import cz.bee_kingdom.rest_api.dto.feeding.FeedingDTO;
 import cz.bee_kingdom.rest_api.dto.feeding.FeedingToDto;
 import cz.bee_kingdom.rest_api.dto.feeding.FeedingToEntity;
+import cz.bee_kingdom.rest_api.dto.treatment.TreatmentDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -53,6 +55,15 @@ public class FeedingController {
     @GetMapping
     public Collection<FeedingDTO> readAll(@PathVariable Long id_colony) {
         return feedingService.readAllByBeeColony(id_colony);
+    }
+
+    @GetMapping("/{id}")
+    public FeedingDTO readById(@PathVariable Long id) {
+        Optional<Feeding> tmp = feedingService.readByID(id);
+        if(tmp.isEmpty()) {
+            throw new EntityStateException("No feeding of this id: " + id);
+        }
+        return feedingToDto.apply(tmp.get());
     }
 
     @PutMapping("/{id}")
